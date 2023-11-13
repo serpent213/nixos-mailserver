@@ -31,7 +31,7 @@ let
   valiases_postfix = mergeLookupTables (lib.flatten (lib.mapAttrsToList
     (name: value:
       let to = name;
-      in map (from: {"${from}" = to;}) (value.aliases ++ lib.singleton name))
+      in map (from: {"${from}" = to;}) value.aliases)
     cfg.loginAccounts));
   regex_valiases_postfix = mergeLookupTables (lib.flatten (lib.mapAttrsToList
     (name: value:
